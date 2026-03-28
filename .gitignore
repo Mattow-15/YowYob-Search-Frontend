@@ -40,9 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 # Environment
-.env.local
 .env.production
-.env*.local
 
 # Logs
 *.log

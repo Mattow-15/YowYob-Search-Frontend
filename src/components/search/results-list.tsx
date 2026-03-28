@@ -23,6 +23,10 @@ interface ResultsListProps {
       address: string;
     };
     tags?: string[];
+    location?: {
+      lat: number;
+      lng: number;
+    };
   }>;
   loading?: boolean;
   onItemClick?: (id: string) => void;

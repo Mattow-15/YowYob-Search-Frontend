@@ -40,10 +40,10 @@ export default function ProductDetailPage() {
       try {
         setIsLoading(true);
         const id = params.id as string;
-        
+
         // Utiliser l'endpoint correct pour récupérer un produit
         const response = await httpClient.get<any>(API_ENDPOINTS.PRODUCT_DETAIL(id));
-        
+
         if (response && response.success && response.data) {
           const mappedProduct: ProductDetail = {
             ...response.data,
@@ -138,18 +138,17 @@ export default function ProductDetailPage() {
                     className="w-full h-96 object-cover"
                   />
                 </div>
-                
+
                 {product.images.length > 1 && (
                   <div className="flex gap-2 overflow-x-auto">
                     {product.images.map((image, index) => (
                       <button
                         key={index}
                         onClick={() => setSelectedImage(index)}
-                        className={`w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-colors ${
-                          selectedImage === index
+                        className={`w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-colors ${selectedImage === index
                             ? 'border-blue-500'
                             : 'border-gray-200 dark:border-gray-700'
-                        }`}
+                          }`}
                       >
                         <img src={image} alt={`${product.name} ${index}`} className="w-full h-full object-cover" />
                       </button>
@@ -179,9 +178,8 @@ export default function ProductDetailPage() {
                       {[...Array(5)].map((_, i) => (
                         <svg
                           key={i}
-                          className={`w-5 h-5 ${
-                            i < Math.round(product.rating) ? 'text-yellow-400' : 'text-gray-300'
-                          }`}
+                          className={`w-5 h-5 ${i < Math.round(product.rating) ? 'text-yellow-400' : 'text-gray-300'
+                            }`}
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -250,7 +248,7 @@ export default function ProductDetailPage() {
         </div>
       </div>
 
-      <Footer />
+
     </>
   );
 }

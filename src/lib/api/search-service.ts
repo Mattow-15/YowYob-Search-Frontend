@@ -25,7 +25,7 @@ interface SimpleResponse {
 
 // Service minimal
 class SimpleSearchService {
-  private baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080';
+  private baseUrl = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080';
 
   async search(filters: SimpleFilters): Promise<SimpleResponse> {
     try {

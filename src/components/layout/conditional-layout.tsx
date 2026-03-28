@@ -8,7 +8,7 @@
 import { useSession } from 'next-auth/react';
 import { HeaderPublic } from './header-public';
 import { HeaderAuthenticated } from './header-authenticated';
-import { Footer } from './footer';
+
 
 export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const { data: session } = useSession();
@@ -21,7 +21,7 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
         <HeaderPublic />
       )}
       {children}
-      <Footer />
+
     </>
   );
 }

@@ -20,13 +20,7 @@ export default function PublicHomePage() {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      if (session) {
-        // Déjà connecté : aller directement à la recherche
-        router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
-      } else {
-        // Pas connecté : redirection via la page auth
-        router.push(`/auth?redirect=/search&q=${encodeURIComponent(searchQuery)}`);
-      }
+      router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
   };
 
@@ -85,11 +79,6 @@ export default function PublicHomePage() {
                   </svg>
                 </button>
               </div>
-              {!session && (
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
-                  🔒 Connectez-vous pour rechercher et découvrir nos services
-                </p>
-              )}
             </div>
 
 

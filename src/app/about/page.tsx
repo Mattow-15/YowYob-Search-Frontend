@@ -8,7 +8,6 @@
 import { useSession } from 'next-auth/react';
 import { HeaderPublic } from '@/components/layout/header-public';
 import { HeaderAuthenticated } from '@/components/layout/header-authenticated';
-import { Footer } from '@/components/layout/footer';
 import Link from 'next/link';
 
 export default function AboutPage() {
@@ -26,7 +25,7 @@ export default function AboutPage() {
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-          
+
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
             <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900 dark:text-gray-100">
               À propos de <span className="text-blue-600">Yowyob</span>
@@ -211,7 +210,7 @@ export default function AboutPage() {
                 <div className="w-28 h-28 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-black">
                   MO
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Matteo Owona</h3>
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Matteo Jordan Owona Nguini</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-500">Architecture & Backend</p>
               </div>
 
@@ -220,7 +219,7 @@ export default function AboutPage() {
                 <div className="w-28 h-28 bg-gradient-to-br from-purple-500 to-pink-400 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-black">
                   RY
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Rouchda Yampen</h3>
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Rouchda Rachida Yampen Njempou</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-500">Frontend & API Integration</p>
               </div>
 
@@ -247,7 +246,7 @@ export default function AboutPage() {
                 <div className="w-28 h-28 bg-gradient-to-br from-green-500 to-emerald-400 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-black">
                   FE
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Freddy Ela Foe</h3>
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Frédéric Théophile Ela Foe</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-500">UI Components & Styling</p>
               </div>
 
@@ -293,7 +292,7 @@ export default function AboutPage() {
         </section>
       </div>
 
-      <Footer />
+
     </>
   );
 }

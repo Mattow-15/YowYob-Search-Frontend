@@ -29,9 +29,12 @@ export const API_ENDPOINTS = {
   AUTH_GOOGLE: `/api/auth/google`,
 
   // User
-  USER_PROFILE: `/api/user/profile`,
+  USER_PROFILE: `/api/users/me`,
   USER_HISTORY: `/api/user/history`,
   USER_FAVORITES: `/api/user/favorites`,
+
+  // Listings by Seller
+  LISTINGS_BY_SELLER: (sellerId: string) => `/api/listings/seller/${sellerId}`,
 
   // Merchant
   MERCHANT_DASHBOARD: `/api/merchant/dashboard`,

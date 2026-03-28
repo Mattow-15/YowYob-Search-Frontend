@@ -9,6 +9,7 @@ import Credentials from 'next-auth/providers/credentials';
 import Google from 'next-auth/providers/google';
 import { httpClient } from '@/lib/api/http-client';
 import { API_ENDPOINTS } from '@/lib/constants/api-endpoints';
+import { verifyUser } from './users-db';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -39,7 +40,22 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           }
           return null;
         } catch (error) {
-          console.error('❌ Erreur d\'authentification backend:', error);
+          // console.error('❌ Erreur d\'authentification backend:', error);
+          console.warn(`⚠️ Backend inaccessible (${(error as any).message}). Tentative avec la base locale...`);
+
+          // Fallback: Tentative avec la base de données locale
+          const localUser = verifyUser(credentials.email as string, credentials.password as string);
+          if (localUser) {
+            return {
+              id: localUser.id,
+              email: localUser.email,
+              name: localUser.name,
+              accessToken: 'mock_access_token_' + localUser.id,
+              refreshToken: 'mock_refresh_token_' + localUser.id,
+              role: localUser.role
+            };
+          }
+
           return null;
         }
       },
@@ -108,6 +124,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
  * Register a new user via the backend API
  */
 export async function registerUser(email: string, password: string, name: string): Promise<{ success: boolean; error?: string; user?: any }> {
+  console.log('🚀 INSIDE registerUser - httpClient baseUrl:', (httpClient as any).baseUrl);
   try {
     const response = await httpClient.post<any>(API_ENDPOINTS.AUTH_REGISTER, {
       email,

@@ -87,6 +87,8 @@ export function AuthContainer() {
     setError('');
 
     console.log('🔵 1. Début handleRegisterSubmit');
+    console.log('🌍 ENV CHECK - NEXT_PUBLIC_API_URL:', process.env.NEXT_PUBLIC_API_URL);
+    console.log('🌍 ENV CHECK - NEXT_PUBLIC_API_BASE_URL:', process.env.NEXT_PUBLIC_API_BASE_URL);
     console.log('Données:', registerData);
 
     // Validation
@@ -109,6 +111,7 @@ export function AuthContainer() {
       console.log('🔵 3. Appel registerUser...');
 
       // Créer l'utilisateur
+      console.log('DEBUG: Calling registerUser function...');
       const registerResult = await registerUser(
         registerData.email,
         registerData.password,

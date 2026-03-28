@@ -4,18 +4,19 @@
  */
 
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { QueryProvider } from '@/lib/providers/query-provider';
 import { SessionProvider } from '@/lib/providers/session-provider';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
   title: 'Yowyob - Moteur de Recherche Local',
   description: 'Trouvez des produits, services et commerces près de chez vous',
 };
+
+import { Footer } from '@/components/layout/footer';
+import { Sidebar } from '@/components/layout/sidebar';
+import { Toaster } from 'sonner';
 
 export default function RootLayout({
   children,
@@ -23,12 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body className={inter.className}>
+    <html lang="fr" suppressHydrationWarning>
+      <body className="font-sans antialiased">
         <SessionProvider>
           <ThemeProvider>
             <QueryProvider>
               {children}
+              <Sidebar />
+              <Footer />
+              <Toaster position="top-right" richColors closeButton />
             </QueryProvider>
           </ThemeProvider>
         </SessionProvider>
